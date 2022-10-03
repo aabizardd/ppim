@@ -39,8 +39,15 @@
                             <p>
                                 <input type="text" placeholder="Student ID"
                                     oninput="this.className = 'form-control form-control-xl'" id="student_id"
-                                    name="student_id" class="form-control form-control-xl" value="{{ old('stduent_id') }}"
-                                    required>
+                                    name="student_id"
+                                    class="form-control form-control-xl @error('student_id') is-invalid @enderror"
+                                    value="{{ old('student_id') }}" required>
+
+                                @error('student_id')
+                                    <span class="text-danger" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </p>
                         </div>
 
@@ -144,21 +151,34 @@
 
                         <div class="tab">
                             <p>
-                                <input type="email" class="form-control form-control-xl" placeholder="Email"
-                                    oninput="this.className = 'form-control form-control-xl'" name="email"
-                                    id="email" value="{{ old('email') }}" type="email">
+                                <input type="email"
+                                    class="form-control form-control-xl @error('email') is-invalid @enderror"
+                                    placeholder="Email" oninput="this.className = 'form-control form-control-xl'"
+                                    name="email" id="email" value="{{ old('email') }}" type="email">
+
+                                @error('email')
+                                    <span class="text-danger" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </p>
 
                             <p>
                                 <input placeholder="Password" oninput="this.className = 'form-control form-control-xl'"
                                     name="password" id="password" value="{{ old('password') }}" type="password"
-                                    class="form-control form-control-xl">
+                                    class="form-control form-control-xl @error('password') is-invalid @enderror">
+
+                                @error('password')
+                                    <span class="text-danger" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </p>
 
                             <p>
                                 <input placeholder="Confirm Password"
-                                    oninput="this.className = 'form-control form-control-xl'" name="cpwd"
-                                    id="cpwd" type="password" class="form-control form-control-xl">
+                                    oninput="this.className = 'form-control form-control-xl'" name="password_confirmation"
+                                    id="password-confirm" type="password" class="form-control form-control-xl">
                             </p>
 
 

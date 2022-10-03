@@ -61,8 +61,17 @@
                             <a href="{{ route('register') }}" class="font-bold">Sign up</a>.
                         </p>
                         <p>
-                            <a class="font-bold" href="auth-forgot-password.html">Forgot password?</a>.
+
+                            @if (Route::has('password.request'))
+                                {{-- <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    {{ __('Forgot Your Password?') }}
+                                </a> --}}
+                                <a class="font-bold" href="{{ route('password.request') }}">Forgot password?</a>
+                            @endif
                         </p>
+
+
+
                     </div>
                 </div>
             </div>

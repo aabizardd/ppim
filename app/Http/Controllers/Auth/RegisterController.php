@@ -69,7 +69,9 @@ class RegisterController extends Controller
         // dd($data);
 
         return Validator::make($data, [
-            'student_id' => ['required', 'string'],
+            'student_id' => ['required', 'string', 'unique:students'],
+            'email' => ['required', 'string', 'email', 'unique:students'],
+            'password' => ['required', 'string', 'min:6', 'confirmed'],
 
         ]);
     }

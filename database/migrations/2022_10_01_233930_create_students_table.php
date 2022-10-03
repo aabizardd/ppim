@@ -22,18 +22,19 @@ class CreateStudentsTable extends Migration
                 ->onDelete('cascade');
 
             $table->string('password');
-            $table->string('fname');
-            $table->string('lname');
-            $table->string('email');
-            $table->string('phone_num');
-            $table->date('dob');
-            $table->string('passport');
-            $table->string('ikad');
-            $table->text('add_id');
-            $table->text('add_my');
-            $table->string('cur_living');
-            $table->string('status');
-
+            $table->string('fname')->nullable();
+            $table->string('lname')->nullable();
+            $table->string('email')->nullable();
+            $table->string('phone_num')->nullable();
+            $table->date('dob')->nullable();
+            $table->string('passport')->nullable();
+            $table->string('ikad')->nullable();
+            $table->text('add_id')->nullable();
+            $table->text('add_my')->nullable();
+            $table->string('cur_living')->nullable();
+            $table->string('status')->nullable();
+            $table->string('role')->default(0)->nullable();
+            $table->rememberToken();
             $table->timestamps();
         });
     }
