@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Campus;
+use App\Models\Student;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -37,6 +38,13 @@ class HomeController extends Controller
         if (Auth::user()->role == 0) {
 
             return view('student.dashboard', $data);
+        } else {
+
+            $all_students = Student::get_all_student_campus();
+
+            $data['students'] = $all_students;
+
+            return view('admin.list-student', $data);
         }
     }
 }

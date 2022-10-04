@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\DB;
 use Laravel\Sanctum\HasApiTokens;
 
 class Student extends Authenticatable
@@ -31,5 +32,16 @@ class Student extends Authenticatable
         'email',
         'password',
     ];
+
+    public static function get_all_student_campus()
+    {
+
+        $students = DB::table('students')
+            ->join('campus', 'students.campus_id', '=', 'campus.id')
+            ->select('students.*', 'campus.*', 'students.id')
+            ->get();
+
+        return $students;
+    }
 
 }

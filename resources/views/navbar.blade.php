@@ -18,8 +18,15 @@
                     <a href="#" data-bs-toggle="dropdown" aria-expanded="false">
                         <div class="user-menu d-flex">
                             <div class="user-name text-end me-3">
-                                <h6 class="mb-0 text-gray-600">John Ducky</h6>
-                                <p class="mb-0 text-sm text-gray-600">Administrator</p>
+                                <h6 class="mb-0 text-gray-600">{{ Auth::user()->fname . ' ' . Auth::user()->lname }}
+                                </h6>
+                                <p class="mb-0 text-sm text-gray-600">
+                                    @if (Auth::user()->role == 0)
+                                        Student
+                                    @else
+                                        Administrator
+                                    @endif
+                                </p>
                             </div>
                             <div class="user-img d-flex align-items-center">
                                 <div class="avatar avatar-md">
@@ -30,10 +37,11 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
                         <li>
-                            <h6 class="dropdown-header">Hello, John!</h6>
+                            <h6 class="dropdown-header">Hello, {{ Auth::user()->fname }}!</h6>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="#"><i class="icon-mid bi bi-person me-2"></i> My
+                            <a class="dropdown-item" href="{{ route('profile') }}"><i
+                                    class="icon-mid bi bi-person me-2"></i> My
                                 Profile</a>
                         </li>
 

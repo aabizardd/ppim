@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard - Mazer Admin Dashboard</title>
+    <title>PPIM</title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com/" />
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&amp;display=swap"
@@ -45,13 +45,13 @@
             <footer>
                 <div class="footer clearfix mb-0 text-muted">
                     <div class="float-start">
-                        <p>2021 &copy; Mazer</p>
+                        <p>2022 &copy; PPIM</p>
                     </div>
                     <div class="float-end">
                         <p>
                             Crafted with
                             <span class="text-danger"><i class="bi bi-heart"></i></span> by
-                            <a href="http://ahmadsaugi.com/">A. Saugi</a>
+                            <a href="http://ppim.co.id/">PPIM</a>
                         </p>
                     </div>
                 </div>

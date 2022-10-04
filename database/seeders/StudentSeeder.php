@@ -18,12 +18,24 @@ class StudentSeeder extends Seeder
         DB::table('students')->insert([
             [
                 'student_id' => 'admin',
+                'campus_id' => null,
+                'fname' => 'Admin',
                 'password' => Hash::make('asdasd'),
                 'role' => 1,
 
             ],
             [
                 'student_id' => 'abi1234',
+                'campus_id' => 1,
+                'fname' => 'STD1',
+                'password' => Hash::make('asdasd'),
+                'role' => 0,
+
+            ],
+            [
+                'student_id' => '1213123',
+                'campus_id' => 1,
+                'fname' => 'STD2',
                 'password' => Hash::make('asdasd'),
                 'role' => 0,
 

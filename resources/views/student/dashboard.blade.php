@@ -29,11 +29,32 @@
                             <div class="card-header">
                                 <h3>Student Data</h3>
                                 <p class="text-subtitle text-muted">
-                                    List data yang sudah anda daftarkan pada formr registrasi di aplikasi.
+                                    List data yang sudah anda daftarkan pada form registrasi di aplikasi.
                                 </p>
 
                             </div>
                             <div class="card-body">
+
+                                @if ($message = Session::get('success'))
+                                    <div class="alert alert-success alert-dismissible show fade">
+                                        {{ $message }}
+                                        <button type="button" class="btn-close btn-sm" data-bs-dismiss="alert"
+                                            aria-label="Close"></button>
+                                    </div>
+                                @endif
+
+
+
+                                @if ($errors->any())
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
+
                                 <form method="POST" action="{{ route('student.update') }}" id="regForm">
                                     @csrf
 
@@ -98,7 +119,8 @@
                                                 value="{{ $user->dob }}" max="<?php
                                                 $today = date('Y-m-d');
                                                 $date = strtotime('today -17 year');
-                                                echo date('Y-m-d', $date); ?>" class="form-control ">
+                                                echo date('Y-m-d', $date); ?>"
+                                                class="form-control ">
                                         </p>
 
 
@@ -149,7 +171,8 @@
 
                                         <div class="form-check form-switch">
 
-                                            <input class="form-check-input" type="checkbox" name="curr" id="curr">
+                                            <input class="form-check-input" type="checkbox" name="curr"
+                                                id="curr">
 
                                             <input type="hidden" name="cur_living" id="cur_living"
                                                 value="{{ $user->cur_living }}">
