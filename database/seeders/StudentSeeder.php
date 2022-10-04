@@ -22,6 +22,12 @@ class StudentSeeder extends Seeder
                 'role' => 1,
 
             ],
+            [
+                'student_id' => 'abi1234',
+                'password' => Hash::make('asdasd'),
+                'role' => 0,
+
+            ],
 
         ]
         );

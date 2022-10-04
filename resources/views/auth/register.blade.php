@@ -25,11 +25,21 @@
             <div class="col-lg-5 col-12">
                 <div id="auth-left">
                     <div class="auth-logo">
-                        <a href="index-2.html"><img src="{{ asset('images/logo/logo.png') }}" alt="Logo"
+                        <a href="{{ route('login') }}"><img src="{{ asset('images/logo/logo.png') }}" alt="Logo"
                                 style="width: 150px;height: 150px;" /></a>
                     </div>
                     <h1 class="auth-title" style="margin-top: -80px">Register.</h1>
                     <p class="auth-subtitle mb-5">Please enter your credentials below to proceed.</p>
+
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
 
                     <form method="POST" action="{{ route('register') }}" id="regForm">
                         @csrf
@@ -62,6 +72,8 @@
                                 <input placeholder="Last Name" oninput="this.className = 'form-control form-control-xl'"
                                     name="lname" id="lname" value="{{ old('lname') }}"
                                     class="form-control form-control-xl">
+
+
                             </p>
                         </div>
 
@@ -108,10 +120,20 @@
 
                         <div class="tab">
                             <p>
-                                <select class="form-control form-control-xl" aria-label="Default select example"
-                                    name="campus_id" id="campus_id">
-                                    <option selected value="1">Hahaahah</option>
+                                <select class="form-control form-control-xl @error('campus_id') is-invalid @enderror"
+                                    aria-label="Default select example" name="campus_id" id="campus_id">
+                                    <option selected value="" disabled>Select Campus....</option>
+                                    @foreach ($campus as $item)
+                                        <option value="{{ $item->id }}">{{ $item->campus }}</option>
+                                    @endforeach
+
                                 </select>
+
+                                @error('campus_id')
+                                    <span class="text-danger" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </p>
 
                             <p>

@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Campus;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,19 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+
+        // dd(Auth::user());
+
+        $campus = Campus::all();
+
+        $data = [
+            'campus' => $campus,
+            'user' => Auth::user(),
+        ];
+
+        if (Auth::user()->role == 0) {
+
+            return view('student.dashboard', $data);
+        }
     }
 }

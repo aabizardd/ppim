@@ -15,9 +15,22 @@ use Illuminate\Support\Facades\Route;
  */
 
 Route::get('/', function () {
+    // $this->middleware('auth');
     return view('auth.login');
 });
+
+// Route::get('/', [App\Http\Controllers\Auth::class, 'index'])->name('home');
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::prefix('student')->group(function () {
+    // Route::get('/', [App\Http\Controllers\TeamITController::class, 'index'])->name('team_it');
+    // Route::get('delete/{id}', [\App\Http\Controllers\TeamITController::class, 'delete'])->name('team_it.delete');
+    // Route::get('create', [\App\Http\Controllers\TeamITController::class, 'create'])->name('team_it.create');
+    // Route::post('store', [\App\Http\Controllers\TeamITController::class, 'store'])->name('team_it.store');
+    // Route::get('edit/{id}', [\App\Http\Controllers\TeamITController::class, 'edit'])->name('team_it.edit');
+    Route::post('update', [\App\Http\Controllers\StudentController::class, 'update'])->name('student.update');
+
+});

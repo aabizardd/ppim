@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Student;
-use Illuminate\Http\Request;
+use App\Models\Campus;
+use App\Http\Requests\StoreCampusRequest;
+use App\Http\Requests\UpdateCampusRequest;
 
-class StudentController extends Controller
+class CampusController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -30,10 +31,10 @@ class StudentController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\StoreCampusRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreCampusRequest $request)
     {
         //
     }
@@ -41,10 +42,10 @@ class StudentController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Student  $student
+     * @param  \App\Models\Campus  $campus
      * @return \Illuminate\Http\Response
      */
-    public function show(Student $student)
+    public function show(Campus $campus)
     {
         //
     }
@@ -52,10 +53,10 @@ class StudentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Student  $student
+     * @param  \App\Models\Campus  $campus
      * @return \Illuminate\Http\Response
      */
-    public function edit(Student $student)
+    public function edit(Campus $campus)
     {
         //
     }
@@ -63,11 +64,11 @@ class StudentController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Student  $student
+     * @param  \App\Http\Requests\UpdateCampusRequest  $request
+     * @param  \App\Models\Campus  $campus
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(UpdateCampusRequest $request, Campus $campus)
     {
         //
     }
@@ -75,10 +76,10 @@ class StudentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Student  $student
+     * @param  \App\Models\Campus  $campus
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Student $student)
+    public function destroy(Campus $campus)
     {
         //
     }
